@@ -1,0 +1,4 @@
+com\travelAdvisor\core\domain\TravelInformation.class
+com\travelAdvisor\core\controller\TravelController.class
+com\travelAdvisor\core\App.class
+com\travelAdvisor\core\configure\SpringConfigure.class
