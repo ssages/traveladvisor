@@ -1,6 +1,7 @@
 package com.travelAdvisor.core.controller;
 
 import com.travelAdvisor.core.domain.TravelInformation;
+import com.travelAdvisor.core.service.TravelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("travel")
 public class TravelController {
 
+    private TravelService service = new TravelService();
+
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<TravelInformation> travel(@RequestParam(value="origin") String origin, @RequestParam(value="destination") String destination){
-        return new ResponseEntity<TravelInformation>(new TravelInformation(origin, destination), HttpStatus.OK);
+        return new ResponseEntity<TravelInformation>(service.travel(origin, destination), HttpStatus.OK);
     }
 }

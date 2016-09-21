@@ -5,28 +5,13 @@ package com.travelAdvisor.core.domain;
  */
 public class TravelInformation {
 
-    private String origin;
-    private String destination;
+    private String data;
 
-    public TravelInformation(String origin, String destination) {
-        this.origin = origin;
-        this.destination = destination;
+    public TravelInformation(String data) {
+        this.data = data;
     }
 
-    @Override
-    public String toString() {
-        final StringBuffer sb = new StringBuffer("TravelInformation{");
-        sb.append("origin='").append(origin).append('\'');
-        sb.append(", destination='").append(destination).append('\'');
-        sb.append('}');
-        return sb.toString();
-    }
-
-    public String getOrigin() {
-        return origin;
-    }
-
-    public String getDestination() {
-        return destination;
+    public String getData() {
+        return data;
     }
 }
