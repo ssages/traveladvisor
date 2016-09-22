@@ -1,5 +1,6 @@
-package com.travelAdvisor.core.dao;
+package com.travelAdvisor.core.dao.directions;
 
+import com.travelAdvisor.core.dao.TravelInformationDao;
 import com.travelAdvisor.core.model.LatLng;
 import com.travelAdvisor.core.model.Step;
 import com.travelAdvisor.core.model.TravelInformation;
@@ -15,7 +16,7 @@ import java.util.List;
 /**
  * Created by shahaf.sages on 9/22/16.
  */
-public class GoogleMapsDirectionsDao implements TravelInformationDao{
+public class GoogleMapsDirectionsDao implements TravelInformationDao {
 
     private GoogleMapsDirectionsRepository repository = new GoogleMapsDirectionsRepository();
 
@@ -25,13 +26,13 @@ public class GoogleMapsDirectionsDao implements TravelInformationDao{
         DirectionsResult directionsResult = repository.travel(travelInformation.getOrigin(), travelInformation.getDestination());
 
         List<Step> steps = new ArrayList<Step>();
-        int totalDurationInMinutes = -1;
-        long totalDistanceInMeters = -1;
+        int totalDurationInMinutes = 0;
+        long totalDistanceInMeters = 0;
 
         //assuming only one leg
         for(DirectionsStep step: directionsResult.routes[0].legs[0].steps){
-            totalDistanceInMeters+= step.duration.value;
-            totalDurationInMinutes+= step.distance.value;
+            totalDistanceInMeters+= step.distance.value;
+            totalDurationInMinutes+= step.duration.value;
             steps.add(new Step(step.duration.value, new LatLng(step.endLocation.lat, step.endLocation.lng), step.htmlInstructions));
         }
 
