@@ -1,6 +1,6 @@
 package com.travelAdvisor.core.controller;
 
-import com.travelAdvisor.core.domain.TravelInformation;
+import com.travelAdvisor.core.model.TravelInformation;
 import com.travelAdvisor.core.service.TravelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

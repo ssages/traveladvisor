@@ -1,11 +1,13 @@
 package com.travelAdvisor.core.service;
 
-import com.travelAdvisor.core.domain.TravelInformation;
+import com.travelAdvisor.core.model.TravelInformation;
 import com.travelAdvisor.core.repository.TravelRepository;
-import com.travelAdvisor.core.repository.directions.GoogleMapsDirectionsRepository;
+import com.travelAdvisor.core.repository.directions.google.GoogleMapsDirectionsRepository;
 import com.travelAdvisor.core.repository.weather.WeatherRepository;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -24,11 +26,11 @@ public class TravelService {
 
 
     public TravelInformation travel(String origin, String destination){
-        StringBuffer data = new StringBuffer();
+        List<Object> data = new ArrayList<Object>(repositories.size());
         for(TravelRepository r: repositories ){
-            data.append(r.travel(origin, destination)).append("|");
+            data.add(r.travel(origin, destination));
         }
-        return new TravelInformation(data.toString());
+        return new TravelInformation(data);
 
     }
 }
