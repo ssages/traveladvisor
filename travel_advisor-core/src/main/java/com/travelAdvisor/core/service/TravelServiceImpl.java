@@ -4,6 +4,7 @@ import com.travelAdvisor.core.dao.directions.GoogleMapsDirectionsDao;
 import com.travelAdvisor.core.dao.weather.OpenWeatherDao;
 import com.travelAdvisor.core.dao.TravelInformationDao;
 import com.travelAdvisor.core.model.TravelInformation;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
 /**
  * Created by shahaf.sages on 9/21/16.
  */
+@Service
 public class TravelServiceImpl implements TravelService {
 
     private Set<TravelInformationDao> daos;
