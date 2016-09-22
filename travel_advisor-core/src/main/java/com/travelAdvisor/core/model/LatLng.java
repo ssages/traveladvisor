@@ -1,14 +1,14 @@
 package com.travelAdvisor.core.model;
 
 /**
- * Created by shahaf.sages on 9/22/16.
+ * Created by shahaf.sages on 9/21/16.
  */
-public class TravelWeatherQueryImpl implements TravelWeatherQuery {
+public class LatLng {
 
     private double lat;
     private double lng;
 
-    public TravelWeatherQueryImpl(double lat, double lng) {
+    public LatLng(double lat, double lng) {
         this.lat = lat;
         this.lng = lng;
     }
