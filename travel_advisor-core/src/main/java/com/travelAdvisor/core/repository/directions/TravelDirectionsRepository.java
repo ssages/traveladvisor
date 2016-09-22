@@ -1,9 +1,11 @@
 package com.travelAdvisor.core.repository.directions;
 
-import com.travelAdvisor.core.repository.TravelRepository;
+import com.travelAdvisor.core.model.TravelDirectionsQuery;
 
 /**
  * Created by shahaf.sages on 9/21/16.
  */
-public interface TravelDirectionsRepository extends TravelRepository {
+public interface TravelDirectionsRepository {
+
+    public Object travel(TravelDirectionsQuery travelDirectionsQuery);
 }
