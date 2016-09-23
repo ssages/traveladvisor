@@ -22,6 +22,12 @@ public class GoogleMapsDirectionsDao implements TravelInformationDao<DirectionsT
     public DirectionsTravleInformation travel(final DirectionsTravleInformation travelInformation) {
         DirectionsResult directionsResult = repository.travel(travelInformation.getOrigin(), travelInformation.getDestination());
 
+        if(directionsResult.routes.length  < 1){
+            travelInformation.addStep(new StepImpl(0, new LatLng(0, 0), "Route not found!"));
+            return travelInformation;
+        }
+
+
         //assuming only one leg
         for(DirectionsStep step: directionsResult.routes[0].legs[0].steps){
             travelInformation.incrementTotalDistanceInMeters(step.distance.value);

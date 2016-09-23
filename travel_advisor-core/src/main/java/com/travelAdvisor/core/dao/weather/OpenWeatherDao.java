@@ -45,7 +45,7 @@ public class OpenWeatherDao implements TravelInformationDao<WeatherTravelInforma
     }
 
     private TemperatureConverter kelvinToCelsius(){
-        return temp -> temp - KELVIN_TO_CELSIUS;
+        return temp -> (int)(temp - KELVIN_TO_CELSIUS);
     }
 
 
