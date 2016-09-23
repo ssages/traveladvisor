@@ -1,25 +1,21 @@
 package com.travelAdvisor.core.dao.directions;
 
 import com.travelAdvisor.core.dao.TravelInformationDao;
-import com.travelAdvisor.core.decorator.TravelInformationDecorator;
 import com.travelAdvisor.core.model.*;
 import com.travelAdvisor.core.repository.directions.google.GoogleMapsDirectionsRepository;
 import com.travelAdvisor.core.repository.directions.google.model.DirectionsResult;
 import com.travelAdvisor.core.repository.directions.google.model.DirectionsStep;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by shahaf.sages on 9/22/16.
  */
-public class GoogleMapsDirectionsDao implements TravelInformationDao<DirectionsTravleInformation> {
+public class GoogleMapsDirectionsDao implements TravelInformationDao<DirectionsTravelInformation> {
 
     private GoogleMapsDirectionsRepository repository = new GoogleMapsDirectionsRepository();
 
 
     @Override
-    public DirectionsTravleInformation travel(final DirectionsTravleInformation travelInformation) {
+    public DirectionsTravelInformation travel(final DirectionsTravelInformation travelInformation) {
         DirectionsResult directionsResult = repository.travel(travelInformation.getOrigin(), travelInformation.getDestination());
 
         if(directionsResult.routes.length  < 1){
