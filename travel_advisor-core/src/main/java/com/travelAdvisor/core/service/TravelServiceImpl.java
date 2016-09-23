@@ -3,7 +3,9 @@ package com.travelAdvisor.core.service;
 import com.travelAdvisor.core.dao.directions.GoogleMapsDirectionsDao;
 import com.travelAdvisor.core.dao.weather.OpenWeatherDao;
 import com.travelAdvisor.core.dao.TravelInformationDao;
+import com.travelAdvisor.core.decorator.TravelInformationDecorator;
 import com.travelAdvisor.core.model.TravelInformation;
+import com.travelAdvisor.core.model.TravelInformationImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -24,13 +26,13 @@ public class TravelServiceImpl implements TravelService {
     }
 
     public TravelInformation travel(String origin, String destination){
-        TravelInformation travelInformation = new TravelInformation(origin, destination);
+        TravelInformationDecorator travelInformationDecorator = new TravelInformationDecorator(new TravelInformationImpl(origin, destination));
 
         for(TravelInformationDao dao: daos){
-                dao.travel(travelInformation);
+                dao.travel(travelInformationDecorator);
         }
 
-        return travelInformation;
+        return travelInformationDecorator.getTravelInformation();
     }
 
 

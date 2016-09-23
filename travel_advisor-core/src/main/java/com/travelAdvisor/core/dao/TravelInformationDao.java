@@ -5,8 +5,7 @@ import com.travelAdvisor.core.model.TravelInformation;
 /**
  * Created by shahaf.sages on 9/22/16.
  */
-public interface TravelInformationDao {
+public interface TravelInformationDao<T extends TravelInformation> {
 
-
-    TravelInformation travel(final TravelInformation travelInformation);
+     T travel(final T travelInformation);
 }

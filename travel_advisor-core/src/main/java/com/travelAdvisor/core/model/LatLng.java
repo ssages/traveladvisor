@@ -13,6 +13,15 @@ public class LatLng {
         this.lng = lng;
     }
 
+    protected LatLng(LatLng another){
+        this.lat = another.getLat();
+        this.lng = another.getLng();
+    }
+
+    protected LatLng clone(){
+        return new LatLng(this);
+    }
+
     public double getLat() {
         return lat;
     }

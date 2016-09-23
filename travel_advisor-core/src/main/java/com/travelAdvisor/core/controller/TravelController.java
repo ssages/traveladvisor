@@ -1,8 +1,8 @@
 package com.travelAdvisor.core.controller;
 
 import com.travelAdvisor.core.model.TravelInformation;
+import com.travelAdvisor.core.model.TravelInformationImpl;
 import com.travelAdvisor.core.service.TravelService;
-import com.travelAdvisor.core.service.TravelServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

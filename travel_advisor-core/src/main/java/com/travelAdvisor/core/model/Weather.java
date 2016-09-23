@@ -14,6 +14,15 @@ public class Weather {
         this.description = description;
     }
 
+    protected Weather(Weather another){
+        this.celsiusTemp = another.getCelsiusTemp();
+        this.description = new String(another.getDescription() == null ? "" : another.getDescription());
+    }
+
+    public Weather clone(){
+        return new Weather(this);
+    }
+
     public double getCelsiusTemp() {
         return celsiusTemp;
     }
