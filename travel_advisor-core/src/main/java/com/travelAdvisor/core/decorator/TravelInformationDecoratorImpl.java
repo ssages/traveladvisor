@@ -42,6 +42,11 @@ public class TravelInformationDecoratorImpl implements TravelInformationDecorato
     }
 
     @Override
+    public int getNumberOfSteps() {
+        return travelInformation.getSteps().size();
+    }
+
+    @Override
     public double getAverageTemperature() {
         double sumTemperature = 0.0;
         int numberOfSteps = 1;

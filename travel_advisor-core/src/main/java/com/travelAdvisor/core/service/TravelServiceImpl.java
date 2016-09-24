@@ -9,8 +9,6 @@ import com.travelAdvisor.core.model.TravelInformationImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-
 /**
  * Created by shahaf.sages on 9/21/16.
  */
@@ -18,25 +16,18 @@ import java.util.Set;
 public class TravelServiceImpl implements TravelService {
 
     @Autowired
-    private Set<DirectionsTravelInformationDao> directions;
+    private DirectionsTravelInformationDao directions;
 
     @Autowired
-    private Set<WeatherTravelInformationDao> weather;
+    private WeatherTravelInformationDao weather;
 
 
     public TravelInformation travel(String origin, String destination){
         TravelInformationDecorator travelInformationDecorator = new TravelInformationDecoratorImpl(new TravelInformationImpl(origin, destination));
-
-        for(DirectionsTravelInformationDao dao: directions){
-                dao.travel(travelInformationDecorator);
-        }
-
-        for(WeatherTravelInformationDao dao: weather){
-            dao.travel(travelInformationDecorator);
-        }
-
+        directions.travel(travelInformationDecorator);
+        if(travelInformationDecorator.getNumberOfSteps() <  1) return travelInformationDecorator.getTravelInformation();
+         weather.travel(travelInformationDecorator);
         travelInformationDecorator.calculateAdvice();
-
         return travelInformationDecorator.getTravelInformation();
     }
 

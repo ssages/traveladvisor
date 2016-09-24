@@ -11,6 +11,8 @@ public interface TravelInformationDecorator extends DirectionsTravelInformation,
 
     TravelInformation getTravelInformation();
 
+    int getNumberOfSteps();
+
     void calculateAdvice();
 
 }

@@ -24,7 +24,6 @@ public class GoogleMapsDirectionsDao implements DirectionsTravelInformationDao {
         DirectionsResult directionsResult = repository.travel(travelInformation.getOrigin(), travelInformation.getDestination());
 
         if(directionsResult.routes.length  < 1){
-            travelInformation.addStep(new StepImpl(0, new LatLng(0, 0), "Route not found!"));
             return travelInformation;
         }
 
