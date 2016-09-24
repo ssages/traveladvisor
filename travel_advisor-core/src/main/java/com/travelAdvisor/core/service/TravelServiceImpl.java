@@ -1,15 +1,14 @@
 package com.travelAdvisor.core.service;
 
-import com.travelAdvisor.core.dao.directions.GoogleMapsDirectionsDao;
-import com.travelAdvisor.core.dao.weather.OpenWeatherDao;
-import com.travelAdvisor.core.dao.TravelInformationDao;
+import com.travelAdvisor.core.dao.directions.DirectionsTravelInformationDao;
+import com.travelAdvisor.core.dao.weather.WeatherTravelInformationDao;
 import com.travelAdvisor.core.decorator.TravelInformationDecorator;
 import com.travelAdvisor.core.decorator.TravelInformationDecoratorImpl;
 import com.travelAdvisor.core.model.TravelInformation;
 import com.travelAdvisor.core.model.TravelInformationImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -18,19 +17,22 @@ import java.util.Set;
 @Service
 public class TravelServiceImpl implements TravelService {
 
-    private Set<TravelInformationDao> daos;
+    @Autowired
+    private Set<DirectionsTravelInformationDao> directions;
 
-    public TravelServiceImpl() {
-        this.daos = new HashSet<TravelInformationDao>(2);
-        daos.add(new GoogleMapsDirectionsDao());
-        daos.add(new OpenWeatherDao());
-    }
+    @Autowired
+    private Set<WeatherTravelInformationDao> weather;
+
 
     public TravelInformation travel(String origin, String destination){
         TravelInformationDecorator travelInformationDecorator = new TravelInformationDecoratorImpl(new TravelInformationImpl(origin, destination));
 
-        for(TravelInformationDao dao: daos){
+        for(DirectionsTravelInformationDao dao: directions){
                 dao.travel(travelInformationDecorator);
+        }
+
+        for(WeatherTravelInformationDao dao: weather){
+            dao.travel(travelInformationDecorator);
         }
 
         travelInformationDecorator.calculateAdvice();

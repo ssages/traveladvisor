@@ -15,4 +15,8 @@ public interface Step {
     void setWeather(Weather weather);
 
     Step clone();
+
+    public static Step createEmtpyStep(){
+        return new StepImpl(0, LatLng.createEmptyLatLang(), "");
+    };
 }

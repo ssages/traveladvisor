@@ -22,6 +22,10 @@ public class LatLng {
         return new LatLng(this);
     }
 
+    public static LatLng createEmptyLatLang(){
+        return new LatLng(0.0, 0.0);
+    }
+
     public double getLat() {
         return lat;
     }

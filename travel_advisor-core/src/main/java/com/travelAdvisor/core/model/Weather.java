@@ -5,6 +5,7 @@ package com.travelAdvisor.core.model;
  */
 public class Weather {
 
+    private static final String NO_INFO = "No information";
     private double celsiusTemp;
 
     private String description;
@@ -21,6 +22,10 @@ public class Weather {
 
     public Weather clone(){
         return new Weather(this);
+    }
+
+    public static Weather createEmptyWeather(){
+        return new Weather(0.0, NO_INFO);
     }
 
     public double getCelsiusTemp() {

@@ -9,7 +9,7 @@ import java.util.Iterator;
  */
 public class TravelInformationDecoratorImpl implements TravelInformationDecorator {
 
-    private TravelInformationImpl travelInformation;
+    private final TravelInformationImpl travelInformation;
 
     public TravelInformationDecoratorImpl(TravelInformationImpl travelInformation) {
         this.travelInformation = travelInformation;

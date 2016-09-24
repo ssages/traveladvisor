@@ -1,7 +1,6 @@
 package com.travelAdvisor.core.repository.directions.google.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.joda.time.DateTime;
 
 /**
  * Created by shahaf.sages on 9/21/16.

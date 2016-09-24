@@ -1,12 +1,11 @@
 package com.travelAdvisor.core.dao.weather;
 
-import com.travelAdvisor.core.dao.TravelInformationDao;
-import com.travelAdvisor.core.decorator.TravelInformationDecorator;
 import com.travelAdvisor.core.model.Step;
-import com.travelAdvisor.core.model.StepImpl;
-import com.travelAdvisor.core.model.TravelInformation;
 import com.travelAdvisor.core.model.WeatherTravelInformation;
 import com.travelAdvisor.core.repository.weather.openweathermap.OpenWeatherMapRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,10 +17,15 @@ import java.util.concurrent.Executors;
 /**
  * Created by shahaf.sages on 9/22/16.
  */
-public class OpenWeatherDao implements TravelInformationDao<WeatherTravelInformation> {
+@Service
+@Order(value=2)
+public class OpenWeatherDao implements WeatherTravelInformationDao {
 
-    private OpenWeatherMapRepository repository = new OpenWeatherMapRepository();
     private final static double KELVIN_TO_CELSIUS = 273.15;
+
+    @Autowired
+    private OpenWeatherMapRepository repository;
+
     private ExecutorService es = Executors.newCachedThreadPool();
 
     @Override
@@ -44,7 +48,6 @@ public class OpenWeatherDao implements TravelInformationDao<WeatherTravelInforma
         return travelInformation;
     }
 
-    //TODO more precise conversion between double to int
     private TemperatureConverter kelvinToCelsius(){
         return temp -> (int)(temp - KELVIN_TO_CELSIUS);
     }

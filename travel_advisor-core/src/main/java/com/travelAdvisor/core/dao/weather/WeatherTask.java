@@ -1,7 +1,6 @@
 package com.travelAdvisor.core.dao.weather;
 
 import com.travelAdvisor.core.model.Step;
-import com.travelAdvisor.core.model.StepImpl;
 import com.travelAdvisor.core.model.Weather;
 import com.travelAdvisor.core.repository.weather.openweathermap.OpenWeatherMapRepository;
 import com.travelAdvisor.core.repository.weather.openweathermap.model.WeatherResult;

@@ -25,14 +25,15 @@ public class StepImpl implements Step {
 
     protected StepImpl(Step another) {
         this.duration = another.getDuration();
-        this.endLocation = another.getEndLocation().clone();
+        this.endLocation = another.getEndLocation() == null ? LatLng.createEmptyLatLang() : another.getEndLocation().clone();
         this.htmlInstructions = new String(another.getHtmlInstructions() == null ? "" : another.getHtmlInstructions());
-        this.weather = another.getWeather().clone();
+        this.weather = another.getWeather() == null ? Weather.createEmptyWeather() : another.getWeather().clone();
     }
 
     public Step clone() {
         return new StepImpl(this);
     }
+
 
     @Override
     public long getDuration() {

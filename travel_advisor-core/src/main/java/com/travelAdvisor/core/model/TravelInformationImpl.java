@@ -26,7 +26,7 @@ public class TravelInformationImpl implements TravelInformation {
         this.destination = new String(another.getDestination() == null ? "" : another.getDestination());
         this.totalDurationInMinutes = another.getTotalDurationInMinutes();
         this.totalDistanceInMeters = another.getTotalDistanceInMeters();
-        this.steps = another.getSteps().stream().map(step -> step.clone()).collect(Collectors.toList());
+        this.steps = another.getSteps().stream().map(step -> step == null ? Step.createEmtpyStep(): step.clone()).collect(Collectors.toList());
         this.travelAdvice = new String(another.getTravelAdvice() == null ? "" : another.getTravelAdvice());
 
     }
