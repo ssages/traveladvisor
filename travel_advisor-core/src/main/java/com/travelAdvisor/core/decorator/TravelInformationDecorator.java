@@ -10,4 +10,7 @@ import com.travelAdvisor.core.model.WeatherTravelInformation;
 public interface TravelInformationDecorator extends DirectionsTravelInformation, WeatherTravelInformation{
 
     TravelInformation getTravelInformation();
+
+    void calculateAdvice();
+
 }

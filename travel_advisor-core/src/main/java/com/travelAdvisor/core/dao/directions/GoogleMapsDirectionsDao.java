@@ -6,6 +6,8 @@ import com.travelAdvisor.core.repository.directions.google.GoogleMapsDirectionsR
 import com.travelAdvisor.core.repository.directions.google.model.DirectionsResult;
 import com.travelAdvisor.core.repository.directions.google.model.DirectionsStep;
 
+import java.util.Iterator;
+
 /**
  * Created by shahaf.sages on 9/22/16.
  */

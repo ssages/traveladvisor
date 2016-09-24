@@ -8,4 +8,6 @@ import java.util.Iterator;
 public interface WeatherTravelInformation extends TravelInformation{
 
     Iterator<Step> getStepsIterator();
+
+    double getAverageTemperature();
 }

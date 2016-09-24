@@ -33,6 +33,8 @@ public class TravelServiceImpl implements TravelService {
                 dao.travel(travelInformationDecorator);
         }
 
+        travelInformationDecorator.calculateAdvice();
+
         return travelInformationDecorator.getTravelInformation();
     }
 

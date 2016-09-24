@@ -42,6 +42,23 @@ public class TravelInformationDecoratorImpl implements TravelInformationDecorato
     }
 
     @Override
+    public double getAverageTemperature() {
+        double sumTemperature = 0.0;
+        int numberOfSteps = 1;
+
+        Iterator<Step> stepsIterator = getStepsIterator();
+
+        while(stepsIterator.hasNext()){
+            sumTemperature += stepsIterator.next().getWeather().getCelsiusTemp();
+            numberOfSteps++;
+        }
+
+        int avgTemperature = (int)sumTemperature/numberOfSteps;
+
+        return  avgTemperature;
+    }
+
+    @Override
     public String getOrigin() {
        return this.travelInformation.getOrigin();
     }
@@ -49,5 +66,13 @@ public class TravelInformationDecoratorImpl implements TravelInformationDecorato
     @Override
     public String getDestination() {
         return this.travelInformation.getDestination();
+    }
+
+    @Override
+    public void calculateAdvice(){
+        boolean advice = false;
+        long totalDurationInHours = travelInformation.getTotalDistanceInMeters()/60;
+        advice = totalDurationInHours < 3 && getAverageTemperature() > 20 && getAverageTemperature() < 30;
+        travelInformation.setTravelAdvice(advice ? "Yes":"No");
     }
 }

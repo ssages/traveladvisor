@@ -66,9 +66,7 @@ public class TravelInformationImpl implements TravelInformation {
         return steps;
     }
 
-    public void setSteps(List<Step> steps) {
-        this.steps = steps;
-    }
+
 
     public String getTravelAdvice() {
         return travelAdvice;
