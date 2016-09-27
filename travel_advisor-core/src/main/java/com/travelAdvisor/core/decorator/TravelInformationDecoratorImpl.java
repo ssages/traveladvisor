@@ -1,8 +1,11 @@
 package com.travelAdvisor.core.decorator;
 
+import com.travelAdvisor.core.advice.Advice;
 import com.travelAdvisor.core.model.*;
 
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by shahaf.sages on 9/23/16.
@@ -32,35 +35,22 @@ public class TravelInformationDecoratorImpl implements TravelInformationDecorato
     }
 
     @Override
+    public long getTotalDurationInMinutes(){
+        return travelInformation.getTotalDurationInMinutes();
+    }
+
+
+    @Override
     public void addStep(Step step) {
         travelInformation.getSteps().add(step);
     }
 
     @Override
-    public Iterator<Step> getStepsIterator(){
-        return travelInformation.getSteps().iterator();
-    }
+    public Collection<Step> getSteps(){return travelInformation.getSteps();}
 
     @Override
     public int getNumberOfSteps() {
         return travelInformation.getSteps().size();
-    }
-
-    @Override
-    public double getAverageTemperature() {
-        double sumTemperature = 0.0;
-        int numberOfSteps = 1;
-
-        Iterator<Step> stepsIterator = getStepsIterator();
-
-        while(stepsIterator.hasNext()){
-            sumTemperature += stepsIterator.next().getWeather().getCelsiusTemp();
-            numberOfSteps++;
-        }
-
-        int avgTemperature = (int)sumTemperature/numberOfSteps;
-
-        return  avgTemperature;
     }
 
     @Override
@@ -73,11 +63,13 @@ public class TravelInformationDecoratorImpl implements TravelInformationDecorato
         return this.travelInformation.getDestination();
     }
 
-    @Override
-    public void calculateAdvice(){
-        boolean advice = false;
-        long totalDurationInHours = travelInformation.getTotalDistanceInMeters()/60;
-        advice = totalDurationInHours < 3 && getAverageTemperature() > 20 && getAverageTemperature() < 30;
-        travelInformation.setTravelAdvice(advice ? "Yes":"No");
+    public void calculateAdvice(Set<Advice> advices){
+
+        boolean result = true;
+        for(Advice advice: advices){
+            result = result && advice.calculate(this);
+        }
+        travelInformation.setTravelAdvice(result? "Yes":"No");
+
     }
 }

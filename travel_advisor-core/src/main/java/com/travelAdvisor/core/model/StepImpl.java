@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class StepImpl implements Step {
 
-    private long duration;
+    private String duration;
 
     @JsonProperty("end_location")
     private LatLng endLocation;
@@ -17,7 +17,7 @@ public class StepImpl implements Step {
 
     private Weather weather;
 
-    public StepImpl(long duration, LatLng endLocation, String htmlInstructions) {
+    public StepImpl(String duration, LatLng endLocation, String htmlInstructions) {
         this.duration = duration;
         this.endLocation = endLocation;
         this.htmlInstructions = htmlInstructions;
@@ -36,7 +36,7 @@ public class StepImpl implements Step {
 
 
     @Override
-    public long getDuration() {
+    public String getDuration() {
         return duration;
     }
 

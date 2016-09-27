@@ -13,4 +13,6 @@ public interface DirectionsTravelInformation extends TravelInformation{
 
     void addStep(Step step);
 
+    long getTotalDurationInMinutes();
+
 }

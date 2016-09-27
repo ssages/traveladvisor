@@ -34,9 +34,8 @@ public class OpenWeatherDao implements WeatherTravelInformationDao {
 
         List<Callable<Object>> tasks = new ArrayList<Callable<Object>>();
 
-        Iterator<Step> stepsIterator = travelInformation.getStepsIterator();
-        while(stepsIterator.hasNext()){
-            tasks.add(Executors.callable(new WeatherTask(stepsIterator.next(), repository, kelvinToCelsius())));
+        for(Step step: travelInformation.getSteps()){
+            tasks.add(Executors.callable(new WeatherTask(step, repository, kelvinToCelsius())));
         }
 
         try {

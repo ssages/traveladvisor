@@ -32,9 +32,13 @@ public class GoogleMapsDirectionsDao implements DirectionsTravelInformationDao {
         for(DirectionsStep step: directionsResult.routes[0].legs[0].steps){
             travelInformation.incrementTotalDistanceInMeters(step.distance.value);
             travelInformation.incrementTotalDurationInMinutes(step.duration.value / 60);
-            travelInformation.addStep(new StepImpl(step.duration.value, new LatLng(step.endLocation.lat, step.endLocation.lng), step.htmlInstructions));
+            travelInformation.addStep(new StepImpl(String.format("%d mins", calculateDuration(step.duration.value)), new LatLng(step.endLocation.lat, step.endLocation.lng), step.htmlInstructions));
         }
 
         return travelInformation;
+    }
+
+    private long calculateDuration(long duration){
+       return duration/60 < 1 ? 1 : duration/60;
     }
 }

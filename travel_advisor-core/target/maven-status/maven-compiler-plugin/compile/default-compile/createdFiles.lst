@@ -2,6 +2,7 @@ com/travelAdvisor/core/repository/directions/google/GoogleMapsDirectionsReposito
 com/travelAdvisor/core/model/Step.class
 com/travelAdvisor/core/dao/weather/TemperatureConverter.class
 com/travelAdvisor/core/decorator/TravelInformationDecorator.class
+com/travelAdvisor/core/advice/WeatherAdvice.class
 com/travelAdvisor/core/model/TravelInformation.class
 com/travelAdvisor/core/model/DirectionsTravelInformation.class
 com/travelAdvisor/core/model/StepImpl.class
@@ -12,6 +13,7 @@ com/travelAdvisor/core/service/TravelServiceImpl.class
 com/travelAdvisor/core/dao/directions/GoogleMapsDirectionsDao.class
 com/travelAdvisor/core/repository/directions/google/model/Duration.class
 com/travelAdvisor/core/dao/weather/WeatherTask.class
+com/travelAdvisor/core/advice/DirectionsAdvice.class
 com/travelAdvisor/core/dao/weather/OpenWeatherDao.class
 com/travelAdvisor/core/repository/weather/openweathermap/model/Main.class
 com/travelAdvisor/core/repository/weather/openweathermap/model/Weather.class
@@ -22,6 +24,7 @@ com/travelAdvisor/core/repository/directions/google/model/DirectionsResult.class
 com/travelAdvisor/core/repository/weather/openweathermap/model/WeatherResult.class
 com/travelAdvisor/core/Application.class
 com/travelAdvisor/core/repository/directions/google/model/DirectionsStep.class
+com/travelAdvisor/core/advice/Advice.class
 com/travelAdvisor/core/dao/directions/DirectionsTravelInformationDao.class
 com/travelAdvisor/core/model/TravelInformationImpl.class
 com/travelAdvisor/core/decorator/TravelInformationDecoratorImpl.class

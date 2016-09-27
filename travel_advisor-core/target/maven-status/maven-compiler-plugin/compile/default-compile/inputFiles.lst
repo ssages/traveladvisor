@@ -18,12 +18,15 @@
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/repository/directions/google/model/Distance.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/repository/weather/openweathermap/model/Weather.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/dao/weather/WeatherTask.java
+/home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/advice/WeatherAdvice.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/model/TravelInformationImpl.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/repository/directions/google/model/DirectionsRoute.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/dao/directions/DirectionsTravelInformationDao.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/dao/weather/OpenWeatherDao.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/dao/directions/GoogleMapsDirectionsDao.java
+/home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/advice/Advice.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/repository/weather/openweathermap/model/Main.java
+/home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/advice/DirectionsAdvice.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/model/TravelInformation.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/service/TravelServiceImpl.java
 /home/shahaf.sages/IdeaProjects/traveladvisor/travel_advisor-core/src/main/java/com/travelAdvisor/core/model/Weather.java
